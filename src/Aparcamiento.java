@@ -18,17 +18,26 @@ public class Aparcamiento {
 			
 			tarjeta = tarjetas.get(i);
 			
-			if(tarjeta.getDni().equals(dni) && !tarjeta.getFuera()){
+			if(tarjeta.getDni().equals(dni)){
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	public ArrayList<Tarjeta> isDentro(ArrayList<Tarjeta> tarjetas){
+	public ArrayList<String> infoTarjetas(){		
+	
+		ArrayList<String> info = new ArrayList<String>();
+		
+		for (int i = 0; i < tarjetas.size(); i++) {
 			
+			info.add("DNI: " + tarjetas.get(i).getDni() 
+					+ ", Nombre: " + tarjetas.get(i).getNombre() 
+					+ ", Apellidos: " + tarjetas.get(i).getApellido()
+			);
+		}
 		
-		
-		return null;
+		return info;
 	}
+
 }

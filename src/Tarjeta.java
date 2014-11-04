@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 /**
@@ -8,12 +9,14 @@ public class Tarjeta {
 	private GregorianCalendar fin_periodo = null;
 	private String nombre, apellido, dni;
 	private boolean fuera = true;
+	
+	public static ArrayList<Tarjeta> tarjetas = new ArrayList<Tarjeta>();
 
 	public Tarjeta(GregorianCalendar fin_periodo, String nombre, String apellido, String dni){
 		
 		this.fin_periodo = fin_periodo;
-		this.nombre = nombre;
-		this.apellido = apellido;
+		this.setNombre(nombre);
+		this.setApellido(apellido);
 		this.setDni(dni);
 	}
 	
@@ -41,5 +44,21 @@ public class Tarjeta {
 
 	public void setDni(String dni) {
 		this.dni = dni;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 }
