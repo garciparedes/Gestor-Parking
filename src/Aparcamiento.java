@@ -1,5 +1,5 @@
 /**
- * Created by garciparedes on 3/11/14.
+ * @author segarci, osferna, adrcalv
  */
 public class Aparcamiento {
 }
