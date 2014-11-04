@@ -61,4 +61,11 @@ public class Tarjeta {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
+    public String informacionToString(){
+        String info="DNI: " + this.getDni()
+                + ", Nombre: " + this.getNombre()
+                + ", Apellidos: " + this.getApellido();
+        return info;
+    }
 }

@@ -31,10 +31,7 @@ public class Aparcamiento {
 		
 		for (int i = 0; i < tarjetas.size(); i++) {
 			
-			info.add("DNI: " + tarjetas.get(i).getDni() 
-					+ ", Nombre: " + tarjetas.get(i).getNombre() 
-					+ ", Apellidos: " + tarjetas.get(i).getApellido()
-			);
+			info.add(tarjetas.get(i).informacionToString());
 		}
 		
 		return info;
