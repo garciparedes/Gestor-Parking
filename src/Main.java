@@ -1,5 +1,5 @@
 /**
- * Created by garciparedes on 3/11/14.
+ * @author segarci, osferna, adrcalv
  */
 public class Main {
     /**
@@ -8,6 +8,8 @@ public class Main {
      */
     public static void main (String[] Args){
     	
-    
+    	Aparcamiento delibes = Aparcamiento.nuevaInstancia();
+    	
+    	delibes.nuevaTarjeta("Sergio", "Garcia", "69696969X");
     }
 }

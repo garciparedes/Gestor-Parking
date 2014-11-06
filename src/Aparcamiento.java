@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 
 /**
  * @author segarci, osferna, adrcalv
@@ -14,6 +13,11 @@ public class Aparcamiento {
 
 	public Aparcamiento() {
 
+	}
+	
+	public static Aparcamiento nuevaInstancia(){
+		
+		return new Aparcamiento();
 	}
 
 	public boolean isDentro(String dni) {
