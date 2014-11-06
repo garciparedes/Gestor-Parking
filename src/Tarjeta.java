@@ -12,6 +12,12 @@ public class Tarjeta {
 
 	public static ArrayList<Tarjeta> tarjetas = new ArrayList<Tarjeta>();
 
+    /**
+     *
+     * @param nombre
+     * @param apellido
+     * @param dni
+     */
 	public Tarjeta(String nombre, String apellido, String dni) {
 
 		this.fin_periodo = null;
@@ -20,37 +26,71 @@ public class Tarjeta {
 		this.dni = dni;
 	}
 
+    /**
+     *
+     * @param nombre
+     * @param apellido
+     * @param dni
+     * @return Tarjeta
+     */
 	public static Tarjeta nuevaInstancia(String nombre, String apellido,
 			String dni) {
 
 		return new Tarjeta(nombre, apellido, dni);
 	}
 
+    /**
+     *
+     * @return
+     */
 	public boolean getFuera() {
 		return fuera;
 	}
 
+    /**
+     *
+     * @param fuera
+     */
 	private void setFuera(boolean fuera) {
 		this.fuera = fuera;
 	}
 
+    /**
+     *
+     */
 	public void reset() {
 
 		setFuera(true);
 	}
 
+    /**
+     *
+     * @return dni
+     */
 	public String getDni() {
 		return dni;
 	}
 
+    /**
+     *
+     * @return nombre
+     */
 	public String getNombre() {
 		return nombre;
 	}
 
+    /**
+     *
+     * @return apellido
+     */
 	public String getApellido() {
 		return apellido;
 	}
 
+    /**
+     *
+     * @return informacion
+     */
 	public String informacionToString() {
 		
 		String info = "DNI: " + this.getDni()
@@ -60,11 +100,19 @@ public class Tarjeta {
 		return info;
 	}
 
+    /**
+     *
+     * @return
+     */
 	public GregorianCalendar getFin_periodo() {
 		
 		return fin_periodo;
 	}
 
+    /**
+     *
+     * @param nueva_fecha
+     */
 	public void setFin_periodo(GregorianCalendar nueva_fecha) {
 
 		if (fin_periodo == null) {

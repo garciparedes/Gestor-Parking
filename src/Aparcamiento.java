@@ -7,10 +7,10 @@ public class Aparcamiento {
 
 	private ArrayList<Tarjeta> tarjetas;
 
-	/**
-	 * 
-	 */
 
+    /**
+     *
+     */
 	public Aparcamiento() {
 
 	}
@@ -20,6 +20,11 @@ public class Aparcamiento {
 		return new Aparcamiento();
 	}
 
+    /**
+     *
+     * @param dni
+     * @return
+     */
 	public boolean isDentro(String dni) {
 
 		Tarjeta tarjeta;
@@ -35,6 +40,11 @@ public class Aparcamiento {
 		return false;
 	}
 
+    /**
+     *
+     * @param dni
+     * @return
+     */
 	public boolean existe(String dni) {
 
 		Tarjeta tarjeta;
@@ -50,6 +60,13 @@ public class Aparcamiento {
 		return false;
 	}
 
+    /**
+     *
+     * @param nombre
+     * @param apellido
+     * @param dni
+     * @return
+     */
 	public boolean nuevaTarjeta(String nombre,
 			String apellido, String dni) {
 
@@ -64,6 +81,10 @@ public class Aparcamiento {
 		}
 	}
 
+    /**
+     *
+     * @return
+     */
 	public ArrayList<String> infoTarjetas() {
 
 		ArrayList<String> info = new ArrayList<String>();
