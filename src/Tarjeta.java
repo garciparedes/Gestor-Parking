@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
@@ -127,4 +128,25 @@ public class Tarjeta {
 			}
 		}
 	}
+
+    /**
+     *
+     */
+    public void entrar(){
+
+        if ( this.getFuera() && (this.fin_periodo != null)  && (this.fin_periodo.after(new Date())) ){
+            this.setFuera(false);
+        }
+    }
+
+    /**
+     *
+     */
+    public void salir(){
+        if (!this.getFuera()){
+            this.setFuera(true);
+        }
+    }
+
+
 }
