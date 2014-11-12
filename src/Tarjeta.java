@@ -34,8 +34,7 @@ public class Tarjeta {
      * @param dni
      * @return Tarjeta
      */
-	public static Tarjeta nuevaInstancia(String nombre, String apellido,
-			String dni) {
+	public static Tarjeta nuevaInstancia(String nombre, String apellido,String dni) {
 
 		return new Tarjeta(nombre, apellido, dni);
 	}
@@ -48,20 +47,23 @@ public class Tarjeta {
 		return fuera;
 	}
 
-    /**
-     *
-     * @param fuera
-     */
-	private void setFuera(boolean fuera) {
-		this.fuera = fuera;
-	}
+	/**
+	 *
+	 * @param nueva_fecha
+	 */
+	public void setFin_periodo(GregorianCalendar nueva_fecha) {
 
-    /**
-     *
-     */
-	public void reset() {
+		if (fin_periodo == null) {
 
-		setFuera(true);
+			fin_periodo = nueva_fecha;
+
+		} else {
+
+			if (fin_periodo.before(nueva_fecha)) {
+
+				fin_periodo = nueva_fecha;
+			}
+		}
 	}
 
     /**
@@ -88,7 +90,17 @@ public class Tarjeta {
 		return apellido;
 	}
 
-    /**
+	/**
+	 *
+	 * @return
+	 */
+	public GregorianCalendar getFin_periodo() {
+
+		return fin_periodo;
+	}
+
+
+	/**
      *
      * @return informacion
      */
@@ -103,50 +115,34 @@ public class Tarjeta {
 
     /**
      *
-     * @return
-     */
-	public GregorianCalendar getFin_periodo() {
-		
-		return fin_periodo;
-	}
-
-    /**
-     *
-     * @param nueva_fecha
-     */
-	public void setFin_periodo(GregorianCalendar nueva_fecha) {
-
-		if (fin_periodo == null) {
-
-			fin_periodo = nueva_fecha;
-			
-		} else {
-			
-			if (fin_periodo.before(nueva_fecha)) {
-
-				fin_periodo = nueva_fecha;
-			}
-		}
-	}
-
-    /**
-     *
      */
     public void entrar(){
 
-        if ( this.getFuera() && (this.fin_periodo != null)  && (this.fin_periodo.after(new Date())) ){
-            this.setFuera(false);
-        }
+        if ( this.fuera
+				&& ( this.fin_periodo != null )
+				&& ( this.fin_periodo.after(new Date()) )
+				){
+            this.fuera = false;
+        } else {
+
+		}
     }
 
     /**
      *
      */
     public void salir(){
-        if (!this.getFuera()){
-            this.setFuera(true);
+        if (!this.fuera){
+            this.fuera = true;
         }
     }
+
+	/**
+	 *
+	 */
+	public void reiniciar() {
+		this.fuera = true;
+	}
 
 
 }

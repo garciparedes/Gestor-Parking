@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 /**
  * @author segarci, osferna, adrcalv
@@ -17,6 +18,10 @@ public class Aparcamiento {
         return tarjetaList;
     }
 
+	/**
+	 * Funcion estatica que devuelve un nuevo objeto Aparcamiento.
+	 * @return Aparcamiento
+	 */
     public static Aparcamiento nuevaInstancia(){
 		return new Aparcamiento();
 	}
@@ -47,45 +52,37 @@ public class Aparcamiento {
      * @return
      */
 	public boolean existe(String dni) {
-
-		Tarjeta tarjeta;
-
-		for (int i = 0; i < tarjetaList.size(); i++) {
-
-			tarjeta = tarjetaList.get(i);
-
-			if (tarjeta.getDni().equals(dni)) {
-				return true;
-			}
-		}
-		return false;
+		return posicion(dni) >= 0;
 	}
 
-    /**
-     *
-     * @param nombre
-     * @param apellido
-     * @param dni
-     * @return
-     */
-	public boolean nuevaTarjeta(String nombre, String apellido, String dni) {
-
-		if (!existe(dni)) {
-
-			tarjetaList.add(Tarjeta.nuevaInstancia(nombre, apellido, dni));
-			return true;
-
-		} else {
-
-			return false;
+	/**
+	 *
+	 * @param dni
+	 * @return
+	 */
+	private int posicion(String dni){
+		for (int i = 0; i < tarjetaList.size(); i++) {
+			if( tarjetaList.get(i).getDni().equals(dni)){
+				return i;
+			}
 		}
+		return -1;
+	}
+
+	/**
+	 *
+	 * @param dni
+	 * @return
+	 */
+	private Tarjeta getTarjeta(String dni){
+		return this.tarjetaList.get(posicion(dni));
 	}
 
     /**
      *
      * @return listaDentro ArrayList con objetos Tarjeta que estan dentro.
      */
-    public  ArrayList<Tarjeta> listaDentro(){
+    public  ArrayList<Tarjeta> getListaDentro(){
 
         ArrayList<Tarjeta> listaDentro = new ArrayList<Tarjeta>();
 
@@ -105,12 +102,53 @@ public class Aparcamiento {
 
 		ArrayList<String> info = new ArrayList<String>();
 
-		for (int i = 0; i < listaDentro().size(); i++) {
+		for (int i = 0; i < getListaDentro().size(); i++) {
 
-			info.add(listaDentro().get(i).informacionToString());
+			info.add(getListaDentro().get(i).informacionToString());
 
 		}
 		return info;
 	}
 
+	/**
+	 *
+	 * @param nombre
+	 * @param apellido
+	 * @param dni
+	 * @return
+	 */
+	public boolean nuevaTarjeta(String nombre, String apellido, String dni) {
+
+		if (!existe(dni)) {
+
+			tarjetaList.add(Tarjeta.nuevaInstancia(nombre, apellido, dni));
+			return true;
+
+		} else {
+
+			return false;
+		}
+	}
+
+	/**
+	 *
+	 * @param dni
+	 * @param fecha
+	 */
+	public void pagar(String dni, GregorianCalendar fecha){
+		this.getTarjeta(dni).setFin_periodo(fecha);
+	}
+
+	public void entrar(String dni){
+		this.getTarjeta(dni).entrar();
+
+	}
+
+	public void salir(String dni){
+		this.getTarjeta(dni).salir();
+	}
+
+	public void reiniciar(String dni){
+		this.getTarjeta(dni).reiniciar();
+	}
 }
