@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
@@ -140,15 +141,27 @@ public class Aparcamiento {
 	}
 
 	public void entrar(String dni){
-		this.getTarjeta(dni).entrar();
+
+		if ( this.getTarjeta(dni).getFuera()
+				&& ( this.getTarjeta(dni).getFin_periodo() != null )
+				&& ( this.getTarjeta(dni).getFin_periodo().after(new Date()) )
+				){
+			this.getTarjeta(dni).setFuera(false);
+		} else {
+				//ToDo
+		}
 
 	}
 
 	public void salir(String dni){
-		this.getTarjeta(dni).salir();
+
+		if (!this.getTarjeta(dni).getFuera()){
+			this.getTarjeta(dni).setFuera(true);
+		}
 	}
 
 	public void reiniciar(String dni){
-		this.getTarjeta(dni).reiniciar();
+		this.getTarjeta(dni).setFuera(true);
+		;
 	}
 }

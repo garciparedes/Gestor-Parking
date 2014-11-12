@@ -39,12 +39,12 @@ public class Tarjeta {
 		return new Tarjeta(nombre, apellido, dni);
 	}
 
-    /**
-     *
-     * @return
-     */
-	public boolean getFuera() {
-		return fuera;
+	/**
+	 *
+	 * @param fuera
+	 */
+	public void setFuera(boolean fuera) {
+		this.fuera = fuera;
 	}
 
 	/**
@@ -65,6 +65,17 @@ public class Tarjeta {
 			}
 		}
 	}
+
+    /**
+     *
+     * @return
+     */
+	public boolean getFuera() {
+		return fuera;
+	}
+
+
+
 
     /**
      *
@@ -112,37 +123,5 @@ public class Tarjeta {
 		
 		return info;
 	}
-
-    /**
-     *
-     */
-    public void entrar(){
-
-        if ( this.fuera
-				&& ( this.fin_periodo != null )
-				&& ( this.fin_periodo.after(new Date()) )
-				){
-            this.fuera = false;
-        } else {
-
-		}
-    }
-
-    /**
-     *
-     */
-    public void salir(){
-        if (!this.fuera){
-            this.fuera = true;
-        }
-    }
-
-	/**
-	 *
-	 */
-	public void reiniciar() {
-		this.fuera = true;
-	}
-
 
 }
