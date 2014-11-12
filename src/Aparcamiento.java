@@ -146,7 +146,7 @@ public class Aparcamiento {
 				&& ( this.getTarjeta(dni).getFin_periodo() != null )
 				&& ( this.getTarjeta(dni).getFin_periodo().after(new Date()) )
 				){
-			this.getTarjeta(dni).setFuera(false);
+			this.getTarjeta(dni).entrar();
 		} else {
 				//ToDo
 		}
@@ -156,12 +156,12 @@ public class Aparcamiento {
 	public void salir(String dni){
 
 		if (!this.getTarjeta(dni).getFuera()){
-			this.getTarjeta(dni).setFuera(true);
+			this.getTarjeta(dni).salir();
 		}
 	}
 
 	public void reiniciar(String dni){
-		this.getTarjeta(dni).setFuera(true);
+		this.getTarjeta(dni).reiniciar();
 		;
 	}
 }

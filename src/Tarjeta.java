@@ -124,4 +124,16 @@ public class Tarjeta {
 		return info;
 	}
 
+	public void entrar(){
+		this.setFuera(false);
+	}
+
+	public void salir(){
+		this.setFuera(true);
+	}
+
+	public void reiniciar(){
+		this.setFuera(true);
+	}
+
 }
