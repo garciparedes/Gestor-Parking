@@ -27,17 +27,6 @@ public class Tarjeta {
 		this.dni = dni;
 	}
 
-    /**
-     *
-     * @param nombre
-     * @param apellido
-     * @param dni
-     * @return Tarjeta
-     */
-	public static Tarjeta nuevaInstancia(String nombre, String apellido,String dni) {
-
-		return new Tarjeta(nombre, apellido, dni);
-	}
 
     /**
      *
@@ -66,6 +55,7 @@ public class Tarjeta {
 		}
 	}
 
+
     /**
      *
      * @return dni
@@ -74,29 +64,6 @@ public class Tarjeta {
 		return dni;
 	}
 
-    /**
-     *
-     * @return nombre
-     */
-	public String getNombre() {
-		return nombre;
-	}
-
-    /**
-     *
-     * @return apellido
-     */
-	public String getApellido() {
-		return apellido;
-	}
-
-	/**
-	 *
-	 * @return
-	 */
-	public GregorianCalendar getFin_periodo() {
-		return fin_periodo;
-	}
 
 	/**
      *
@@ -110,6 +77,7 @@ public class Tarjeta {
 		
 		return info;
 	}
+
 
     /**
      *
@@ -126,6 +94,7 @@ public class Tarjeta {
 		}
     }
 
+
     /**
      *
      */
@@ -135,12 +104,12 @@ public class Tarjeta {
         }
     }
 
+
 	/**
 	 *
 	 */
 	public void reiniciar() {
 		fuera = true;
 	}
-
 
 }

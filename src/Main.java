@@ -6,10 +6,12 @@ import java.util.GregorianCalendar;
  */
 public class Main {
 
+
     /**
      *
      */
     public static ArrayList<Tarjeta> listaTarjeta = new ArrayList<Tarjeta>();
+
 
     /**
      *
@@ -21,6 +23,7 @@ public class Main {
         Tarjeta tarjeta = new Tarjeta(nombre, apellido, dni);
         listaTarjeta.add(tarjeta);
     }
+
 
     /**
      *
@@ -36,6 +39,7 @@ public class Main {
         return -1;
     }
 
+
     /**
      *
      * @param dni
@@ -45,12 +49,14 @@ public class Main {
         return listaTarjeta.get(posicion(dni));
     }
 
+
     /**
      *
      */
     public static void entrar(Aparcamiento aparcamiento, String dni){
         aparcamiento.entrar(dni);
     }
+
 
     /**
      *
@@ -59,12 +65,14 @@ public class Main {
         aparcamiento.salir(dni);
     }
 
+
     /**
      *
      */
     public static void reiniciar(String dni){
         getTarjeta(dni).reiniciar();
     }
+
 
     /**
      *
@@ -75,15 +83,14 @@ public class Main {
         getTarjeta(dni).pagar(gregorianCalendar);
     }
 
+
     /**
      *
      * @param Args
      */
     public static void main (String[] Args){
     	
-    	Aparcamiento delibes = Aparcamiento.nuevaInstancia();
-        Aparcamiento aparcamiento = Aparcamiento.nuevaInstancia();
-
+    	Aparcamiento delibes = new Aparcamiento();
         nuevaTarjeta("Sergio", "Garcia", "69696969X");
         nuevaTarjeta("Adri", "", "69696967X");
         nuevaTarjeta("Oscar", "", "69696969");
@@ -93,14 +100,16 @@ public class Main {
         pagar("69696969", new GregorianCalendar(2015, 6, 24));
 
 
-        entrar(aparcamiento, "69696969X");
 
-        delibes.entrar("69696967X");
-        delibes.entrar("69696969");
+        entrar(delibes, "69696967X");
+        entrar(delibes, "69696969");
 
-        delibes.salir("69696969");
+        salir(delibes, "69696969");
+
+        reiniciar("69696967X");
 
 
         System.out.println(delibes.infoTarjetas());
     }
+    
 }
