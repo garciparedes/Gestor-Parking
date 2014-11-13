@@ -31,7 +31,7 @@ public class Aparcamiento {
         */
 
 		for (int i = 0; i < Main.listaTarjeta.size(); i++){
-			if ( Main.listaTarjeta.get(i).getFuera()){
+			if ( !Main.listaTarjeta.get(i).getFuera()){
 				listaDentro.add(Main.listaTarjeta.get(i));
 			}
 		}

@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
  */
 public class Tarjeta {
 
+
 	private GregorianCalendar fin_periodo;
 	private String nombre, apellido, dni;
 	private boolean fuera = true;
@@ -86,7 +87,7 @@ public class Tarjeta {
 
         if ( fuera
 				&& ( fin_periodo != null )
-				&& ( fin_periodo.after(new Date()) )
+				&& ( fin_periodo.after(new GregorianCalendar(2000,2,23)) )
 				){
             fuera = false;
         } else {

@@ -55,6 +55,9 @@ public class Main {
      */
     public static void entrar(Aparcamiento aparcamiento, String dni){
         aparcamiento.entrar(dni);
+        if (getTarjeta(dni).getFuera()){
+            System.out.println("Hola");
+        }
     }
 
 
@@ -106,10 +109,9 @@ public class Main {
 
         salir(delibes, "69696969");
 
-        reiniciar("69696967X");
+        //reiniciar("69696967X");
 
 
         System.out.println(delibes.infoTarjetas());
     }
-    
 }
