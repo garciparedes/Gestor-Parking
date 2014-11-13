@@ -131,6 +131,7 @@ public class Aparcamiento {
 	}
 
 
+
 	public void entrar(String dni){
 		this.getTarjeta(dni).entrar();
 

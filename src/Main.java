@@ -18,7 +18,7 @@ public class Main {
      * @param dni
      */
     public static void nuevaTarjeta(String nombre, String apellido, String dni){
-        Tarjeta tarjeta = new Tarjeta(nombre, apellido, dni)
+        Tarjeta tarjeta = new Tarjeta(nombre, apellido, dni);
         listaTarjeta.add(tarjeta);
     }
 
@@ -41,10 +41,30 @@ public class Main {
      * @param dni
      * @return
      */
-    private static Tarjeta getTarjeta(String dni){
+    public static Tarjeta getTarjeta(String dni){
         return listaTarjeta.get(posicion(dni));
     }
 
+    /**
+     *
+     */
+    public static void entrar(){
+
+    }
+
+    /**
+     *
+     */
+    public static void salir(){
+
+    }
+
+    /**
+     *
+     */
+    public static void reiniciar(){
+
+    }
     /**
      *
      * @param dni

@@ -95,10 +95,8 @@ public class Tarjeta {
 	 * @return
 	 */
 	public GregorianCalendar getFin_periodo() {
-
 		return fin_periodo;
 	}
-
 
 	/**
      *
@@ -106,9 +104,9 @@ public class Tarjeta {
      */
 	public String informacionToString() {
 		
-		String info = "DNI: " + this.getDni()
-				+ ", Nombre: " + this.getNombre()
-				+ ", Apellidos: " + this.getApellido();
+		String info = "DNI: " + dni
+				+ ", Nombre: " + nombre
+				+ ", Apellidos: " + apellido;
 		
 		return info;
 	}
@@ -118,11 +116,11 @@ public class Tarjeta {
      */
     public void entrar(){
 
-        if ( this.fuera
-				&& ( this.fin_periodo != null )
-				&& ( this.fin_periodo.after(new Date()) )
+        if ( fuera
+				&& ( fin_periodo != null )
+				&& ( fin_periodo.after(new Date()) )
 				){
-            this.fuera = false;
+            fuera = false;
         } else {
 
 		}
@@ -132,8 +130,8 @@ public class Tarjeta {
      *
      */
     public void salir(){
-        if (!this.fuera){
-            this.fuera = true;
+        if (!fuera){
+            fuera = true;
         }
     }
 
@@ -141,7 +139,7 @@ public class Tarjeta {
 	 *
 	 */
 	public void reiniciar() {
-		this.fuera = true;
+		fuera = true;
 	}
 
 
