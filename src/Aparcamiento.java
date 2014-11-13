@@ -86,11 +86,20 @@ public class Aparcamiento {
 
         ArrayList<Tarjeta> listaDentro = new ArrayList<Tarjeta>();
 
-        for (int i = 0; i < this.getTarjetaList().size(); i++){
-            if (this.getTarjetaList().get(i).getFuera()){
-                listaDentro.add(this.getTarjetaList().get(i));
+		/*
+        for (int i = 0; i < getTarjetaList().size(); i++){
+            if (getTarjetaList().get(i).getFuera()){
+                listaDentro.add(getTarjetaList().get(i));
             }
         }
+        */
+
+		for (int i = 0; i < Main.listaTarjeta.size(); i++){
+			if ( Main.listaTarjeta.get(i).getFuera()){
+				listaDentro.add(Main.listaTarjeta.get(i));
+			}
+		}
+
         return listaDentro;
     }
 
@@ -110,35 +119,12 @@ public class Aparcamiento {
 		return info;
 	}
 
-	/**
-	 *
-	 * @param nombre
-	 * @param apellido
-	 * @param dni
-	 * @return
-	 */
-	public boolean nuevaTarjeta(String nombre, String apellido, String dni) {
-
-		if (!existe(dni)) {
-
-			tarjetaList.add(Tarjeta.nuevaInstancia(nombre, apellido, dni));
-			return true;
-
-		} else {
-
-			return false;
-		}
-	}
-
-
-
 	public void entrar(String dni){
-		this.getTarjeta(dni).entrar();
-
+		Main.getTarjeta(dni).entrar();
 	}
 
 	public void salir(String dni){
-		this.getTarjeta(dni).salir();
+		Main.getTarjeta(dni).salir();
 	}
 
 	public void reiniciar(String dni){

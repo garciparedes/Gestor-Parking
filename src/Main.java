@@ -48,23 +48,24 @@ public class Main {
     /**
      *
      */
-    public static void entrar(){
-
+    public static void entrar(Aparcamiento aparcamiento, String dni){
+        aparcamiento.entrar(dni);
     }
 
     /**
      *
      */
-    public static void salir(){
-
+    public static void salir(Aparcamiento aparcamiento, String dni){
+        aparcamiento.salir(dni);
     }
 
     /**
      *
      */
-    public static void reiniciar(){
-
+    public static void reiniciar(String dni){
+        getTarjeta(dni).reiniciar();
     }
+
     /**
      *
      * @param dni
@@ -81,6 +82,7 @@ public class Main {
     public static void main (String[] Args){
     	
     	Aparcamiento delibes = Aparcamiento.nuevaInstancia();
+        Aparcamiento aparcamiento = Aparcamiento.nuevaInstancia();
 
         nuevaTarjeta("Sergio", "Garcia", "69696969X");
         nuevaTarjeta("Adri", "", "69696967X");
@@ -91,8 +93,12 @@ public class Main {
         pagar("69696969", new GregorianCalendar(2015, 6, 24));
 
 
+        entrar(aparcamiento, "69696969X");
+
         delibes.entrar("69696967X");
         delibes.entrar("69696969");
+
+        delibes.salir("69696969");
 
 
         System.out.println(delibes.infoTarjetas());
