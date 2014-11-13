@@ -74,9 +74,6 @@ public class Tarjeta {
 		return fuera;
 	}
 
-
-
-
     /**
      *
      * @return dni
@@ -110,7 +107,6 @@ public class Tarjeta {
 		return fin_periodo;
 	}
 
-
 	/**
      *
      * @return informacion
@@ -124,14 +120,23 @@ public class Tarjeta {
 		return info;
 	}
 
+	/**
+	 *
+	 */
 	public void entrar(){
 		setFuera(false);
 	}
 
+	/**
+	 *
+	 */
 	public void salir(){
 		setFuera(true);
 	}
 
+	/**
+	 *
+	 */
 	public void reiniciar(){
 		setFuera(true);
 	}

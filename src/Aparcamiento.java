@@ -140,11 +140,15 @@ public class Aparcamiento {
 		this.getTarjeta(dni).setFin_periodo(fecha);
 	}
 
+	/**
+	 *
+	 * @param dni
+	 */
 	public void entrar(String dni){
 
-		if ( this.getTarjeta(dni).getFuera()
-				&& ( this.getTarjeta(dni).getFin_periodo() != null )
-				&& ( this.getTarjeta(dni).getFin_periodo().after(new Date()) )
+		if ( getTarjeta(dni).getFuera()
+				&& ( getTarjeta(dni).getFin_periodo() != null )
+				&& ( getTarjeta(dni).getFin_periodo().after(new Date()) )
 				){
 			this.getTarjeta(dni).entrar();
 		} else {
@@ -153,6 +157,10 @@ public class Aparcamiento {
 
 	}
 
+	/**
+	 *
+	 * @param dni
+	 */
 	public void salir(String dni){
 
 		if (!this.getTarjeta(dni).getFuera()){
@@ -160,6 +168,10 @@ public class Aparcamiento {
 		}
 	}
 
+	/**
+	 *
+	 * @param dni
+	 */
 	public void reiniciar(String dni){
 		this.getTarjeta(dni).reiniciar();
 		;
