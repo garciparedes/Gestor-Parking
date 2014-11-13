@@ -51,7 +51,7 @@ public class Tarjeta {
 	 *
 	 * @param nueva_fecha
 	 */
-	public void setFin_periodo(GregorianCalendar nueva_fecha) {
+	public void pagar(GregorianCalendar nueva_fecha) {
 
 		if (fin_periodo == null) {
 

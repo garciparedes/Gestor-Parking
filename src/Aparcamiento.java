@@ -130,14 +130,6 @@ public class Aparcamiento {
 		}
 	}
 
-	/**
-	 *
-	 * @param dni
-	 * @param fecha
-	 */
-	public void pagar(String dni, GregorianCalendar fecha){
-		this.getTarjeta(dni).setFin_periodo(fecha);
-	}
 
 	public void entrar(String dni){
 		this.getTarjeta(dni).entrar();
