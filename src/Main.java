@@ -46,28 +46,9 @@ public class Main {
      * @return
      */
     public static Tarjeta getTarjeta(String dni){
-        return listaTarjeta.get(posicion(dni));
+
+    		return listaTarjeta.get(posicion(dni));
     }
-
-
-    /**
-     *
-     */
-    public static void entrar(Aparcamiento aparcamiento, String dni){
-        aparcamiento.entrar(dni);
-        if (getTarjeta(dni).getFuera()){
-            System.out.println("Hola");
-        }
-    }
-
-
-    /**
-     *
-     */
-    public static void salir(Aparcamiento aparcamiento, String dni){
-        aparcamiento.salir(dni);
-    }
-
 
     /**
      *
@@ -97,21 +78,23 @@ public class Main {
         nuevaTarjeta("Sergio", "Garcia", "69696969X");
         nuevaTarjeta("Adri", "", "69696967X");
         nuevaTarjeta("Oscar", "", "69696969");
-
-        pagar("69696969X", new GregorianCalendar(2015, 6, 24));
+        
+        pagar("69696969X", new GregorianCalendar(2015, 6, 24));/*
         pagar("69696967X", new GregorianCalendar(2015, 6, 24));
         pagar("69696969", new GregorianCalendar(2015, 6, 24));
 
-
-
-        entrar(delibes, "69696967X");
-        entrar(delibes, "69696969");
-
-        salir(delibes, "69696969");
+        */
+        ArrayList<String> a = delibes.infoTarjetas(listaTarjeta);
+        
+        for (String b:a) {
+			System.out.print(b + ", ");
+		}
+        
+        delibes.entrar(listaTarjeta, "69696969X");
 
         //reiniciar("69696967X");
 
 
-        System.out.println(delibes.infoTarjetas());
+        System.out.println(delibes.infoTarjetas(listaTarjeta));
     }
 }

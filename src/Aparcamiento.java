@@ -11,14 +11,14 @@ public class Aparcamiento {
      *
      */
 	public Aparcamiento() {
+		
 	}
-
 
     /**
      *
-     * @return listaDentro ArrayList con objetos Tarjeta que estan dentro.
+     * @return ArrayList con objetos Tarjeta que estan dentro.
      */
-    public  ArrayList<Tarjeta> getListaDentro(){
+    public  ArrayList<Tarjeta> getListaDentro(ArrayList<Tarjeta> listaTarjeta){
 
         ArrayList<Tarjeta> listaDentro = new ArrayList<Tarjeta>();
 
@@ -30,9 +30,11 @@ public class Aparcamiento {
         }
         */
 
-		for (int i = 0; i < Main.listaTarjeta.size(); i++){
-			if ( !Main.listaTarjeta.get(i).getFuera()){
-				listaDentro.add(Main.listaTarjeta.get(i));
+		for (int i = 0; i < listaTarjeta.size(); i++){
+			
+			if ( !listaTarjeta.get(i).getFuera()){
+				
+				listaDentro.add(listaTarjeta.get(i));
 			}
 		}
 
@@ -41,28 +43,41 @@ public class Aparcamiento {
 
 
     /**
-     *
-     * @return info ArrayList con un String con informacion sobre las tarjetas que estan dentro.
+     * 
+     * @param listaTarjeta lista de objetos Tarjeta
+     * 
+     * @return ArrayList tipo String con informacion sobre las tarjetas que estan dentro.
      */
-	public ArrayList<String> infoTarjetas() {
+	public ArrayList<String> infoTarjetas(ArrayList<Tarjeta> listaTarjeta) {
 
 		ArrayList<String> info = new ArrayList<String>();
 
-		for (int i = 0; i < getListaDentro().size(); i++) {
+		for (int i = 0; i < getListaDentro(listaTarjeta).size(); i++) {
 
-			info.add(getListaDentro().get(i).informacionToString());
+			info.add(getListaDentro(listaTarjeta).get(i).informacionToString());
 
 		}
 		return info;
 	}
 
-
 	/**
-	 *
+	 * 
+	 * @param listaTarjeta
 	 * @param dni
 	 */
-	public void entrar(String dni){
-		Main.getTarjeta(dni).entrar();
+	public void entrar(ArrayList<Tarjeta> listaTarjeta, String dni){
+		
+		Tarjeta aux;
+		
+		for (int i = 0; i < listaTarjeta.size(); i++) {
+			
+			aux = listaTarjeta.get(i);
+			
+			if(aux.getDni().equals(dni)){
+				
+				aux.entrar();
+			}
+		}
 	}
 
 
