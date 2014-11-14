@@ -14,6 +14,7 @@ public class Aparcamiento {
 		
 	}
 
+
     /**
      *
      * @return ArrayList con objetos Tarjeta que estan dentro.
@@ -21,14 +22,6 @@ public class Aparcamiento {
     public  ArrayList<Tarjeta> getListaDentro(ArrayList<Tarjeta> listaTarjeta){
 
         ArrayList<Tarjeta> listaDentro = new ArrayList<Tarjeta>();
-
-		/*
-        for (int i = 0; i < getTarjetaList().size(); i++){
-            if (getTarjetaList().get(i).getFuera()){
-                listaDentro.add(getTarjetaList().get(i));
-            }
-        }
-        */
 
 		for (int i = 0; i < listaTarjeta.size(); i++){
 			
@@ -60,33 +53,22 @@ public class Aparcamiento {
 		return info;
 	}
 
+
 	/**
-	 * 
-	 * @param listaTarjeta
-	 * @param dni
+	 *
+	 * @param tarjeta
 	 */
-	public void entrar(ArrayList<Tarjeta> listaTarjeta, String dni){
-		
-		Tarjeta aux;
-		
-		for (int i = 0; i < listaTarjeta.size(); i++) {
-			
-			aux = listaTarjeta.get(i);
-			
-			if(aux.getDni().equals(dni)){
-				
-				aux.entrar();
-			}
-		}
+	public void entrar(Tarjeta tarjeta){
+		tarjeta.entrar();
 	}
 
 
 	/**
 	 *
-	 * @param dni
+	 * @param tarjeta
 	 */
-	public void salir(String dni){
-		Main.getTarjeta(dni).salir();
+	public void salir (Tarjeta tarjeta){
+		tarjeta.salir();
 	}
 
 }

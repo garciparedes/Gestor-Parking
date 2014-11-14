@@ -69,8 +69,10 @@ public class Tarjeta {
 	 */
 	public String informacionToString() {
 
-		String info = "DNI: " + dni + ", Nombre: " + nombre + ", Apellidos: "
-				+ apellido;
+		String info = ("DNI: " + dni
+				+ ", Nombre: " + nombre
+				+ ", Apellidos: "+ apellido
+		);
 
 		return info;
 	}
@@ -110,4 +112,7 @@ public class Tarjeta {
 		fuera = true;
 	}
 
+	public GregorianCalendar getFin_periodo() {
+		return fin_periodo;
+	}
 }
