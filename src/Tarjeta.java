@@ -1,10 +1,14 @@
 import java.util.GregorianCalendar;
 
+
 /**
- * @author segarci, osferna, adrcalv
+ * @author Sergio Garcia Prado
+ * @author Adrian Calvo Rojo
+ * @author Oscar Fernández Angulo
  */
 public class Tarjeta {
 
+	/* Atributos de la clase Tarjeta */
 	private GregorianCalendar fin_periodo;
 	private String nombre, apellido, dni;
 	private boolean fuera = true;
@@ -111,7 +115,9 @@ public class Tarjeta {
 
 		fuera = true;
 	}
-
+	/**
+	 * @return Devuelve la fecha limite de pago.
+	 */
 	public GregorianCalendar getFin_periodo() {
 		return fin_periodo;
 	}
